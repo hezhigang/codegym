@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extended Euclid Algorithm</title>
+    <script type="text/javascript">
+        function extended_gcd(m, n) {
+            if (m == 0)
+                return {d: n, a: 0, b: 1};
+            var re = extended_gcd(n % m, m);
+            var d = re.d;
+            var a = re.b - Math.floor(n / m) * re.a;
+            var b = re.a;
+            return {d: d, a: a, b: b};
+        }
+
+        // var m=12, n=18;
+        var m=46, n=240;
+        var re = extended_gcd(m, n);
+        console.log(`${re.a}*${m} + ${re.b}*${n} = ${re.d} \n`);
+    </script>
+</head>
+<body>
+<h1>Extended Euclid Algorithm</h1>
+<a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm">Extended Euclidean algorithm</a>
+<hr/>
+Euclid's algorithm also gives us more: We can extend it so that it will compute integers a and b satisfying
+am+ bn = gcd(m, n)   (4.5)
+
+If m = 0, we simply take a = 0 and b = 1.
+
+Otherwise we let r = n mod m and apply the method recursively with r and m in place of
+m and n, computing r and m such that
+a'r + b'm = gcd(r, m)
+
+hence a=b'-Math.floor(n/m)*a' and b=a'
+
+</body>
+</html>
