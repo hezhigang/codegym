@@ -8,8 +8,9 @@ public class ModularInverse {
         System.out.println(BigInteger.valueOf(21).modInverse(BigInteger.valueOf(5)));
         System.out.println(BigInteger.valueOf(15).modInverse(BigInteger.valueOf(7)));
         System.out.println(BigInteger.valueOf(42).modInverse(BigInteger.valueOf(2017)));
-//        int m = 12, n = 18;
-        int m = 42, n = 2017;
+        int m = 12, n = 18;
+//        int m = 42, n = 2017;
+//        int m = 3, n = 35;
         EEResult re = extendedEuclid(m, n);
         System.out.printf("%d*%d+%d*%d=%d", re.a, m, re.b, n, re.d);
     }
